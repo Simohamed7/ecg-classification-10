@@ -93,13 +93,13 @@ uploaded_signal = st.sidebar.file_uploader("Importer ECG (.mat, .csv, .png, .jpg
 
 fs = st.sidebar.number_input("Fréquence d'échantillonnage (Hz)", value=360)
 use_savgol = st.sidebar.checkbox("Lissage Savitzky–Golay", value=True)
-sg_window = st.sidebar.slider("SG window", 5, 101, 21, step=2)
+sg_window = st.sidebar.slider("SG window", 5, 101, 11, step=2)
 sg_poly = st.sidebar.slider("SG polyorder", 2, 7, 3)
 pre_s = st.sidebar.slider("Fenêtre avant R (s)", 0.10,0.60,0.30,0.05)
 post_s = st.sidebar.slider("Fenêtre après R (s)",0.10,0.60,0.30,0.05)
 
 # Slider interactif alpha FrFT
-alpha_selected = st.sidebar.slider("Ordre FrFT (alpha)", 0.0, 1.0, 0.5, 0.01)
+alpha_selected = st.sidebar.slider("Ordre FrFT (alpha)", 0.0, 1.0, 0.01, 0.01)
 
 # Classes
 class_names = ["F3", "N0", "Q4", "S1", "V2"]
@@ -208,4 +208,5 @@ st.write(f"Classe prédite: **{final_label}**")
 st.write("Probabilités moyennes (%) :")
 for j, c in enumerate(class_names):
     st.write(f"{class_full_names[c]}: {avg_probs[j]*100:.1f}%")
+
 
