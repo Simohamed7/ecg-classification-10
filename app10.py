@@ -106,7 +106,7 @@ class_names = ["F3", "N0", "Q4", "S1", "V2"]
 class_full_names = {"N0":"NORMAL","S1":"SUPRAVENTICULAR","V2":"VENTRICULAR","F3":"FUSION","Q4":"UNKNOWN"}
 
 # Charger modèle depuis le même dossier
-model_path = "best_model_single.h5"
+model_path = "best_model_single1.h5"
 try:
     model = load_model(model_path)
     st.success("Modèle chargé avec succès !")
@@ -208,3 +208,4 @@ st.write(f"Classe prédite: **{final_label}**")
 st.write("Probabilités moyennes (%) :")
 for j, c in enumerate(class_names):
     st.write(f"{class_full_names[c]}: {avg_probs[j]*100:.1f}%")
+
